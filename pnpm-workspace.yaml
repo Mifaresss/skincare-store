@@ -3,6 +3,7 @@ packages:
   - cms
 
 allowBuilds:
+  '@parcel/watcher': false
   '@swc/core': true
   core-js-pure: false
   esbuild: true
