@@ -8,6 +8,15 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "dev:web": "pnpm --filter web dev",
-    "dev:cms": "pnpm --filter cms develop"
+    "dev:cms": "pnpm --filter cms develop",
+    "check": "biome check . && prettier --check --no-error-on-unmatched-pattern \"**/*.{scss,css}\"",
+    "fix": "biome check --write . && prettier --write --no-error-on-unmatched-pattern \"**/*.{scss,css}\"",
+    "typecheck": "pnpm -r --parallel typecheck",
+    "prepare": "lefthook install"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.13",
+    "lefthook": "2.1.12",
+    "prettier": "3.9.6"
   }
 }

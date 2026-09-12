@@ -1,0 +1,11 @@
+# Prettier formats styles only; everything else belongs to Biome
+*
+!*/
+!**/*.scss
+!**/*.css
+
+**/node_modules
+**/.next
+**/.strapi
+**/dist
+**/build

@@ -11,12 +11,12 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "upgrade": "npx @strapi/upgrade latest",
-    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+    "typecheck": "tsc --noEmit",
+    "upgrade": "pnpm dlx @strapi/upgrade latest",
+    "upgrade:dry": "pnpm dlx @strapi/upgrade latest --dry"
   },
   "dependencies": {
     "@strapi/database": "5.53.0",
-    "@strapi/plugin-cloud": "5.53.0",
     "@strapi/plugin-users-permissions": "5.53.0",
     "@strapi/strapi": "5.53.0",
     "pg": "8.20.0",
