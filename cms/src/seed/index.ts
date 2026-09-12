@@ -26,8 +26,29 @@ const createImageUploader = (strapi: Core.Strapi) => {
   };
 };
 
+const publicReadActions = [
+  'api::announcement-bar.announcement-bar.find',
+  'api::badge.badge.find',
+  'api::category.category.find',
+  'api::product.product.find',
+];
+
+const grantPublicReadAccess = async (strapi: Core.Strapi) => {
+  const publicRole = await strapi.db
+    .query('plugin::users-permissions.role')
+    .findOne({ where: { type: 'public' } });
+
+  for (const action of publicReadActions) {
+    await strapi.db
+      .query('plugin::users-permissions.permission')
+      .create({ data: { action, role: publicRole.id } });
+  }
+};
+
 const seedContent = async (strapi: Core.Strapi) => {
   const uploadImage = createImageUploader(strapi);
+
+  await grantPublicReadAccess(strapi);
 
   await strapi.documents('api::announcement-bar.announcement-bar').create({
     data: { messages: announcements.map((text) => ({ text })) },
