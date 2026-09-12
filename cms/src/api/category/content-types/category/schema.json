@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category",
+    "description": "Product category shown as a tab above the products"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 40
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "categories"
+    }
+  }
+}

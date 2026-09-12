@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": "Product card shown in the How it works section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "size": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "discountType": {
+      "type": "enumeration",
+      "enum": ["none", "percentage", "salePrice"],
+      "default": "none",
+      "required": true
+    },
+    "discountPercent": {
+      "type": "integer",
+      "min": 1,
+      "max": 99,
+      "conditions": {
+        "visible": {
+          "==": [{ "var": "discountType" }, "percentage"]
+        }
+      }
+    },
+    "salePrice": {
+      "type": "decimal",
+      "min": 0,
+      "conditions": {
+        "visible": {
+          "==": [{ "var": "discountType" }, "salePrice"]
+        }
+      }
+    },
+    "badges": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::badge.badge",
+      "inversedBy": "products"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "variantGroups": {
+      "type": "component",
+      "component": "product.variant-group",
+      "repeatable": true
+    }
+  }
+}

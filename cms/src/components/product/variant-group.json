@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_variant_groups",
+  "info": {
+    "displayName": "Variant group",
+    "description": "Named set of options, e.g. Skin type or Size"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "options": {
+      "type": "component",
+      "component": "product.variant-option",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    }
+  }
+}

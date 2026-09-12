@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "announcement_bars",
+  "info": {
+    "singularName": "announcement-bar",
+    "pluralName": "announcement-bars",
+    "displayName": "Announcement bar",
+    "description": "Messages rotating in the bar above the header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "messages": {
+      "type": "component",
+      "component": "shared.announcement",
+      "repeatable": true
+    }
+  }
+}

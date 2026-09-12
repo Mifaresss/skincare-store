@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_product_variant_options",
+  "info": {
+    "displayName": "Variant option",
+    "description": "Selectable value of a variant group, e.g. Dry or 50 ml"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "discountPercent": {
+      "type": "integer",
+      "min": 1,
+      "max": 99
+    }
+  }
+}
