@@ -1,0 +1,21 @@
+@use 'breakpoints' as bp;
+
+.backdrop {
+  background:
+    radial-gradient(ellipse 60% 22% at 50% 62%, #c6e2e6, transparent),
+    radial-gradient(ellipse 45% 25% at 100% 38%, #f4eef1, transparent),
+    radial-gradient(ellipse 70% 30% at 50% 28%, #ecf1fb, transparent),
+    linear-gradient(to bottom, transparent 70%, #e2f0f2), var(--color-neutral-200);
+  border-radius: 0 0 var(--radius-3xl) var(--radius-3xl);
+  box-shadow: var(--shadow-card-s);
+
+  @include bp.up(xl) {
+    background:
+      radial-gradient(ellipse 22% 18% at 62% 100%, #a8dfe4, transparent),
+      radial-gradient(ellipse 16% 14% at 32% 86%, #f5ebeb, transparent),
+      radial-gradient(ellipse 18% 26% at 90% 38%, #fedfe0, transparent),
+      radial-gradient(ellipse 45% 42% at 48% 32%, #eaf2fe, transparent), #fcfcfc;
+    border-radius: var(--radius-lg);
+    box-shadow: none;
+  }
+}

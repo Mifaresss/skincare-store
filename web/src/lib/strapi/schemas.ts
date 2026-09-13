@@ -53,11 +53,13 @@ const categorySchema = z
   .object({ documentId: z.string(), name: z.string() })
   .transform(({ documentId, name }) => ({ id: documentId, name }));
 
+const announcementSchema = z.object({ id: z.number(), text: z.string() });
+
 export const announcementBarResponseSchema = z
   .object({
-    data: z.object({ messages: z.array(z.object({ text: z.string() })) }).nullable(),
+    data: z.object({ messages: z.array(announcementSchema) }).nullable(),
   })
-  .transform(({ data }) => data?.messages.map(({ text }) => text) ?? []);
+  .transform(({ data }) => data?.messages ?? []);
 
 export const categoriesResponseSchema = z
   .object({ data: z.array(categorySchema) })
@@ -67,6 +69,7 @@ export const productsResponseSchema = z
   .object({ data: z.array(productSchema) })
   .transform(({ data }) => data);
 
+export type Announcement = z.output<typeof announcementSchema>;
 export type ProductImage = z.output<typeof imageSchema>;
 export type VariantGroup = z.output<typeof variantGroupSchema>;
 export type Product = z.output<typeof productSchema>;

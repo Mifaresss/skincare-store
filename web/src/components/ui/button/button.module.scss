@@ -1,0 +1,90 @@
+@use 'fluid' as *;
+
+@mixin hovered {
+  color: var(--button-hover-color, var(--button-color));
+
+  &::before {
+    top: 50%;
+    translate: -50% -50%;
+    scale: var(--button-fill-scale);
+  }
+}
+
+.button {
+  --button-padding-block: 16px;
+  --button-padding-inline: 32px;
+  --button-font-size: #{rem(18px)};
+  --button-transition: 0.4s ease-in-out;
+  --icon-size: 1.2em;
+
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  overflow: hidden;
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--button-color);
+  background: var(--button-background);
+  border-radius: var(--radius-pill);
+  transition: color var(--button-transition);
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: -1;
+    inline-size: var(--button-fill-size);
+    aspect-ratio: 1;
+    content: '';
+    background: var(--button-fill);
+    border-radius: 50%;
+    translate: -50% 0;
+    transition:
+      top var(--button-transition),
+      translate var(--button-transition),
+      scale var(--button-transition);
+  }
+
+  &:focus-visible {
+    @include hovered;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @include hovered;
+    }
+  }
+}
+
+.dark {
+  --button-color: var(--color-neutral-100);
+  --button-background: var(--color-neutral-900);
+  --button-fill-size: 70%;
+  --button-fill-scale: 4.67;
+  --button-fill: radial-gradient(
+    circle closest-side,
+    var(--color-brand-500) 43.2%,
+    var(--color-brand-400) 43.2% 60.7%,
+    var(--color-brand-200) 60.7% 79.4%,
+    var(--color-brand-100) 79.4%
+  );
+}
+
+.light {
+  --button-color: var(--color-neutral-900);
+  --button-hover-color: var(--color-brand-900);
+  --button-background: var(--color-neutral-200);
+  --button-fill-size: 105%;
+  --button-fill-scale: 1.16;
+  --button-fill: radial-gradient(
+    circle closest-side,
+    var(--color-neutral-300),
+    var(--color-neutral-400)
+  );
+}

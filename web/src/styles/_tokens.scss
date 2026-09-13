@@ -1,3 +1,5 @@
+@use 'fluid' as *;
+
 :root {
   --color-neutral-100: #fff;
   --color-neutral-200: #f3f5f5;
@@ -45,4 +47,5 @@
     -8px 12px 12px rgb(156 182 186 / 9%), 1px 2px 4px rgb(156 182 186 / 8%);
 
   --container-width: 1280px;
+  --page-padding: #{fluid(14px, 80px)};
 }

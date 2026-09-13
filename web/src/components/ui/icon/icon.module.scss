@@ -1,0 +1,30 @@
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  inline-size: var(--icon-size, 22px);
+  block-size: var(--icon-size, 22px);
+  background-color: currentColor;
+  mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+.arrow-up-right {
+  mask-image: url('/icons/arrow-up-right.svg');
+}
+
+.heart {
+  mask-image: url('/icons/heart.svg');
+}
+
+.list {
+  mask-image: url('/icons/list.svg');
+}
+
+.magnifying-glass {
+  mask-image: url('/icons/magnifying-glass.svg');
+}
+
+.shopping-cart {
+  mask-image: url('/icons/shopping-cart.svg');
+}

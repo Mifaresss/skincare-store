@@ -1,0 +1,13 @@
+.link {
+  transition: color 0.3s ease;
+
+  &:focus-visible {
+    color: var(--color-accent-teal);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-accent-teal);
+    }
+  }
+}

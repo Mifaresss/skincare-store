@@ -1,0 +1,228 @@
+@use 'breakpoints' as bp;
+@use 'fluid' as *;
+
+$desktop: 1280px;
+$design: 1440px;
+
+.hero {
+  display: grid;
+  grid-template-areas: 'headline' 'cta' 'trust' 'portrait';
+  justify-items: center;
+  inline-size: 100%;
+  max-inline-size: calc(1240px + 2 * var(--page-padding));
+  padding: 34px var(--page-padding) 311px;
+  margin-inline: auto;
+  text-align: center;
+
+  @include bp.up(md) {
+    padding-bottom: 60px;
+  }
+
+  @include bp.up(xl) {
+    grid-template-areas:
+      'headline headline headline'
+      'cta portrait essentials'
+      '. trust trust';
+    grid-template-columns: minmax(0, 386fr) minmax(0, 561fr) minmax(246px, 292fr);
+    align-items: start;
+    justify-items: stretch;
+    padding-top: 8px;
+    padding-bottom: 29px;
+    text-align: start;
+  }
+}
+
+.headline {
+  display: grid;
+  grid-area: headline;
+  row-gap: 15px;
+}
+
+.title {
+  font-size: fluid(40px, 125px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+
+  @include bp.up(xl) {
+    grid-area: 1 / 1;
+    line-height: 0.8;
+  }
+}
+
+.titleLead,
+.titleAccent {
+  display: block;
+}
+
+.titleAccent {
+  font-weight: 800;
+  color: var(--color-accent-teal);
+
+  @include bp.up(xl) {
+    padding-inline-end: fluid(0px, 15px, $desktop, $design);
+    margin-block-start: -0.05em;
+    font-weight: 700;
+    color: var(--color-accent-cyan);
+    text-align: end;
+  }
+}
+
+.subtitle {
+  max-inline-size: 13em;
+  justify-self: center;
+  font-size: fluid(18px, 28px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-black);
+
+  @include bp.up(xl) {
+    grid-area: 1 / 1;
+    align-self: end;
+    justify-self: start;
+    max-inline-size: 14em;
+    margin-inline-start: 10px;
+    color: var(--color-accent-teal);
+  }
+}
+
+.cta {
+  display: grid;
+  grid-area: cta;
+  gap: 8px;
+  justify-items: center;
+  margin-block-start: 25px;
+
+  @include bp.up(xl) {
+    justify-self: start;
+    margin-block-start: fluid(90px, 118px, $desktop, $design);
+  }
+}
+
+.ctaHint {
+  font-size: fluid(14px, 18px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+
+  @include bp.up(xl) {
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+}
+
+.ctaButton {
+  font-weight: 500;
+
+  @include bp.up(xl) {
+    --button-padding-block: #{fluid(24px, 30px, $desktop, $design)};
+    --button-padding-inline: #{fluid(56px, 74px, $desktop, $design)};
+    --button-font-size: #{fluid(22px, 24px, $desktop, $design)};
+
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+}
+
+.portrait {
+  display: block;
+  grid-area: portrait;
+  inline-size: min(561px, 100%);
+  block-size: auto;
+  aspect-ratio: 561 / 374;
+  margin-block-start: 48px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+
+  @include bp.up(xl) {
+    inline-size: 100%;
+    margin-block-start: fluid(40px, 58px, $desktop, $design);
+  }
+}
+
+.essentials {
+  display: none;
+
+  @include bp.up(xl) {
+    display: grid;
+    grid-area: essentials;
+    justify-items: end;
+    margin-block-start: fluid(70px, 88px, $desktop, $design);
+  }
+}
+
+.essentialsImage {
+  position: relative;
+  justify-self: start;
+  inline-size: 184px;
+  block-size: 129px;
+  margin-inline-start: fluid(40px, 79px, $desktop, $design);
+  overflow: hidden;
+  border-radius: var(--radius-md);
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.essentialsCard {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  inline-size: 246px;
+  padding: 25px 20px 12px;
+  margin-block-start: -12px;
+  background: var(--color-neutral-100);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card-s);
+}
+
+.essentialsTitle {
+  font-size: rem(24px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.essentialsText {
+  max-inline-size: 206px;
+  font-size: rem(16px);
+  font-weight: 500;
+  line-height: 1.16;
+  color: var(--color-black);
+}
+
+.essentialsButton {
+  margin-block-start: 4px;
+}
+
+.trust {
+  grid-area: trust;
+  padding: fluid(13px, 9px) fluid(7px, 13px);
+  margin-block-start: 34px;
+  border: 1px solid var(--color-neutral-100);
+  border-radius: var(--radius-sm);
+
+  @include bp.up(xl) {
+    justify-self: end;
+    margin-block-start: fluid(12px, 18px, $desktop, $design);
+    margin-inline-end: fluid(40px, 72px, $desktop, $design);
+  }
+}
+
+.trustLabel {
+  display: block;
+  padding: fluid(16px, 20px);
+  font-size: rem(16px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-neutral-800);
+  background: var(--color-neutral-100);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-s);
+
+  @include bp.up(xl) {
+    inline-size: 331px;
+  }
+}

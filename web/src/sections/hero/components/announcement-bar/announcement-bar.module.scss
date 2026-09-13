@@ -1,0 +1,41 @@
+@use 'breakpoints' as bp;
+@use 'fluid' as *;
+
+.bar {
+  display: grid;
+  place-items: center;
+  min-block-size: 44px;
+  padding: 10px 16px;
+  overflow: hidden;
+  font-size: rem(16px);
+  line-height: 1.1;
+  color: var(--color-neutral-100);
+  text-align: center;
+  background: var(--color-neutral-900);
+  box-shadow: var(--shadow-card-s);
+
+  @include bp.up(lg) {
+    align-self: center;
+    inline-size: min(458px, 100%);
+    padding-inline: 20px;
+    font-weight: 700;
+  }
+}
+
+.message {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(0.75em);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.active {
+  opacity: 1;
+  transform: none;
+}
+
+.previous {
+  transform: translateY(-0.75em);
+}

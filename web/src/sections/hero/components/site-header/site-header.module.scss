@@ -1,0 +1,104 @@
+@use 'breakpoints' as bp;
+@use 'fluid' as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  inline-size: min(100%, var(--container-width) + 2 * var(--page-padding));
+  padding: 26px var(--page-padding) 0;
+  margin-inline: auto;
+
+  @include bp.up(lg) {
+    gap: 12px;
+    padding-top: 44px;
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-block-size: 50px;
+
+  @include bp.up(lg) {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    min-block-size: 78px;
+  }
+}
+
+.logo {
+  display: none;
+  font-family: var(--font-logo);
+  font-size: rem(40px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-black);
+
+  @include bp.up(lg) {
+    display: block;
+    justify-self: start;
+  }
+}
+
+.nav {
+  display: none;
+
+  @include bp.up(lg) {
+    display: block;
+  }
+}
+
+.navList {
+  display: flex;
+  gap: 40px;
+}
+
+.navLink {
+  font-size: rem(16px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  @include bp.up(lg) {
+    --icon-button-size: 40px;
+
+    gap: 8px;
+    justify-self: end;
+  }
+}
+
+.search {
+  display: none;
+
+  @include bp.up(lg) {
+    display: inline-grid;
+  }
+}
+
+.cart {
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  right: -8px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  inline-size: 20px;
+  block-size: 20px;
+  font-size: rem(14px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-neutral-100);
+  pointer-events: none;
+  background: var(--color-neutral-900);
+  border-radius: var(--radius-pill);
+}
