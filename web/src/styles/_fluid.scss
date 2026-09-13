@@ -1,0 +1,15 @@
+@use 'sass:math';
+
+$min-viewport: 375px;
+$max-viewport: 1440px;
+
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+
+@function fluid($min, $max) {
+  $slope: math.div($max - $min, $max-viewport - $min-viewport);
+  $intercept: $min - $slope * $min-viewport;
+
+  @return clamp(#{rem($min)}, #{rem($intercept)} + #{$slope * 100vw}, #{rem($max)});
+}

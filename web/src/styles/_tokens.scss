@@ -1,0 +1,48 @@
+:root {
+  --color-neutral-100: #fff;
+  --color-neutral-200: #f3f5f5;
+  --color-neutral-250: #e3e8e9;
+  --color-neutral-300: #d9e1e2;
+  --color-neutral-400: #bcc9c5;
+  --color-neutral-500: #9aada7;
+  --color-neutral-600: #bfbfbf;
+  --color-neutral-700: #858585;
+  --color-neutral-800: #505050;
+  --color-neutral-900: #212721;
+  --color-black: #000;
+
+  --color-brand-100: #e5f7ed;
+  --color-brand-200: #d1f0e0;
+  --color-brand-400: #92dbb6;
+  --color-brand-500: #63cc96;
+  --color-brand-900: #1b3829;
+
+  --color-accent-teal: #00c3d0;
+  --color-accent-cyan: #00c0e8;
+  --color-accent-mint: #00c8b3;
+  --color-accent-pink: #ffe3f1;
+
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-logo: var(--font-inter), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 30px;
+  --radius-2xl: 32px;
+  --radius-3xl: 40px;
+  --radius-pill: 999px;
+
+  --shadow-card-s:
+    -12px -8px 16px rgb(154 173 167 / 16%), 8px 26px 11px rgb(156 182 186 / 1%),
+    5px 14px 9px rgb(156 182 186 / 5%), 2px 6px 7px rgb(156 182 186 / 9%),
+    1px 2px 4px rgb(156 182 186 / 10%);
+  --shadow-card-m:
+    -12px -40px 30px rgb(156 182 186 / 10%), -20px 40px 30px rgb(156 182 186 / 6%),
+    8px 26px 14px rgb(156 182 186 / 9%), 12px 20px 16px rgb(156 182 186 / 9%),
+    -8px 12px 12px rgb(156 182 186 / 9%), 1px 2px 4px rgb(156 182 186 / 8%);
+
+  --container-width: 1280px;
+}
