@@ -20,9 +20,6 @@ importers:
 
   cms:
     dependencies:
-      '@strapi/database':
-        specifier: 5.53.0
-        version: 5.53.0(pg@8.20.0)(supports-color@8.1.1)(ts-toolbelt@9.6.0)
       '@strapi/plugin-users-permissions':
         specifier: 5.53.0
         version: 5.53.0(b400ecbbc9ba2d7f905775bf9efa4cd4)

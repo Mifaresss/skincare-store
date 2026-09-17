@@ -28,8 +28,6 @@ services:
         generateValue: true
       - key: ENCRYPTION_KEY
         generateValue: true
-      - key: DATABASE_CLIENT
-        value: postgres
       - key: DATABASE_URL
         sync: false
       - key: DATABASE_SSL
