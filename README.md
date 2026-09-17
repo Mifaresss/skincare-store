@@ -4,9 +4,11 @@ Test task for Dashly Studio: the hero section and the “How it works” section
 
 | | |
 | --- | --- |
-| Website | _added after deployment_ |
-| Strapi Admin | _added after deployment_ |
+| Website | https://lumea-skincare-store.vercel.app |
+| Strapi Admin | https://lumea-cms.onrender.com/admin |
 | Admin login | _sent separately_ |
+
+Strapi runs on the Render free plan and sleeps after 15 minutes without requests, so the first Admin load can take about a minute. The website is not affected: it is served from the cache.
 
 ## Stack
 
