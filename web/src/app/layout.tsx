@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { Caveat, Inter, Manrope } from 'next/font/google';
+import { env } from '@/lib/env';
 import '@/styles/globals.scss';
 
 const manrope = Manrope({
@@ -19,14 +20,29 @@ const caveat = Caveat({
   subsets: ['latin'],
 });
 
+const title = 'LUMEA — Skincare made simple';
+const description =
+  'Build a simple four-step skincare routine — cleanse, treat, moisturise and protect — with thoughtful formulas for healthy, glowing skin.';
+
 export const metadata: Metadata = {
-  title: 'LUMEA — Skincare made simple',
-  description: 'Thoughtful formulas for healthy, glowing skin.',
+  metadataBase: new URL(env.SITE_URL),
+  title,
+  description,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'LUMEA',
+    locale: 'en_GB',
+    title,
+    description,
+  },
+  twitter: { card: 'summary_large_image', title, description },
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={clsx(manrope.variable, inter.variable, caveat.variable)}>
+    <html lang="en-GB" className={clsx(manrope.variable, inter.variable, caveat.variable)}>
       <body>{children}</body>
     </html>
   );
