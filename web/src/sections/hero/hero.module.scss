@@ -10,7 +10,7 @@ $design: 1440px;
   justify-items: center;
   inline-size: 100%;
   max-inline-size: calc(1240px + 2 * var(--page-padding));
-  padding: 34px var(--page-padding) 311px;
+  padding: 34px var(--page-padding) 48px;
   margin-inline: auto;
   text-align: center;
 
@@ -129,10 +129,10 @@ $design: 1440px;
 .portrait {
   display: block;
   grid-area: portrait;
-  inline-size: min(561px, 100%);
+  inline-size: min(561px, 100% - 20px);
   block-size: auto;
   aspect-ratio: 561 / 374;
-  margin-block-start: 48px;
+  margin-block-start: 44px;
   object-fit: cover;
   border-radius: var(--radius-xl);
 

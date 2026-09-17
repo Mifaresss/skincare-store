@@ -37,7 +37,7 @@ export function Hero({ className }: HeroProps) {
         alt="Woman with glowing skin enjoying the sun"
         width={1200}
         height={800}
-        sizes="(min-width: 1280px) 40vw, (min-width: 768px) 561px, 1px"
+        sizes="(min-width: 1280px) 40vw, (min-width: 640px) 561px, calc(100vw - 48px)"
         loading="eager"
         className={s.portrait}
       />
