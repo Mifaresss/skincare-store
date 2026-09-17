@@ -48,8 +48,8 @@
 
   @include bp.up(lg) {
     align-items: stretch;
-    padding: 16px var(--page-padding) 24px 16px;
-    margin-inline-start: -16px;
+    padding: 16px 16px 24px;
+    margin-inline: -16px;
     scroll-padding-inline: 16px;
   }
 }

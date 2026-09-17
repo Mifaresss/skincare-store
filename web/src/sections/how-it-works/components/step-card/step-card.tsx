@@ -42,7 +42,7 @@ export function StepCard({ step, number, onReveal, onShop }: StepCardProps) {
         alt={step.image.alt}
         width={1000}
         height={1500}
-        sizes="(min-width: 1024px) 400px, 300px"
+        sizes="(min-width: 1024px) 390px, 186px"
         className={s.image}
       />
     </article>
