@@ -15,7 +15,7 @@ services:
       - key: NODE_VERSION
         value: 24
       - key: IS_PROXIED
-        value: true
+        value: 'true'
       - key: PUBLIC_URL
         sync: false
       - key: APP_KEYS
@@ -33,7 +33,7 @@ services:
       - key: DATABASE_URL
         sync: false
       - key: DATABASE_SSL
-        value: true
+        value: 'true'
       - key: ADMIN_EMAIL
         sync: false
       - key: ADMIN_PASSWORD
