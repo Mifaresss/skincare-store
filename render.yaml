@@ -4,12 +4,14 @@ services:
     runtime: node
     plan: free
     region: frankfurt
-    buildCommand: corepack enable pnpm && pnpm install --frozen-lockfile --filter cms... && pnpm --filter cms build
+    buildCommand: corepack pnpm install --frozen-lockfile --filter cms... && corepack pnpm --filter cms build
     startCommand: cd cms && node node_modules/@strapi/strapi/bin/strapi.js start
     healthCheckPath: /_health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: COREPACK_ENABLE_DOWNLOAD_PROMPT
+        value: 0
       - key: NODE_VERSION
         value: 24
       - key: IS_PROXIED
