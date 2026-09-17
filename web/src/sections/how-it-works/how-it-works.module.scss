@@ -1,0 +1,63 @@
+@use 'breakpoints' as bp;
+@use 'fluid' as *;
+
+.section {
+  display: grid;
+  gap: fluid(40px, 80px);
+  inline-size: 100%;
+  max-inline-size: calc(var(--container-width) + 2 * var(--page-padding));
+  padding: fluid(60px, 160px) var(--page-padding) fluid(80px, 160px);
+  margin-inline: auto;
+}
+
+.intro {
+  display: grid;
+  gap: fluid(12px, 12px);
+  justify-items: center;
+  justify-self: center;
+  text-align: center;
+
+  @include bp.up(md) {
+    padding: 28px fluid(40px, 160px, 768px, 1440px);
+    background: linear-gradient(to bottom, #f3f5f5 11.5%, #f5fcfd 104.6%);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card-m);
+  }
+}
+
+.title {
+  --icon-size: 32px;
+
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: fluid(30px, 38px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-neutral-900);
+
+  @include bp.up(md) {
+    font-weight: 700;
+  }
+}
+
+.star {
+  color: var(--color-black);
+}
+
+.titleAccent {
+  color: var(--color-brand-500);
+}
+
+.subtitle {
+  max-inline-size: 13em;
+  font-size: rem(18px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-neutral-800);
+
+  @include bp.up(md) {
+    max-inline-size: none;
+    font-weight: 700;
+  }
+}

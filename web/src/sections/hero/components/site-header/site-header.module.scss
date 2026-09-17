@@ -81,24 +81,3 @@
     display: inline-grid;
   }
 }
-
-.cart {
-  position: relative;
-}
-
-.cartCount {
-  position: absolute;
-  right: -8px;
-  bottom: -4px;
-  display: grid;
-  place-items: center;
-  inline-size: 20px;
-  block-size: 20px;
-  font-size: rem(14px);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--color-neutral-100);
-  pointer-events: none;
-  background: var(--color-neutral-900);
-  border-radius: var(--radius-pill);
-}

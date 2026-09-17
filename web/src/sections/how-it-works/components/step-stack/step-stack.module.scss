@@ -1,0 +1,23 @@
+@use 'breakpoints' as bp;
+@use 'fluid' as *;
+
+.list {
+  display: grid;
+  row-gap: fluid(16px, 24px);
+  overflow-anchor: none;
+
+  &::after {
+    block-size: fluid(60px, 176px);
+    content: '';
+  }
+}
+
+.item {
+  position: sticky;
+  top: calc(var(--stack-top) + var(--index) * var(--stack-peek));
+  margin-block: calc(-1 * var(--stack-tail-before, 0px)) var(--stack-tail, 0px);
+
+  @include bp.up(lg) {
+    --stack-compression: 50px;
+  }
+}

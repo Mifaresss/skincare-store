@@ -2,9 +2,13 @@ import { cacheLife, cacheTag } from 'next/cache';
 import { STRAPI_CACHE_TAG, strapiFetch } from './client';
 import {
   announcementBarResponseSchema,
+  type Category,
   categoriesResponseSchema,
+  type Product,
   productsResponseSchema,
 } from './schemas';
+
+export type CategoryWithProducts = Category & { products: Product[] };
 
 const imageFields = ['url', 'alternativeText', 'width', 'height'];
 

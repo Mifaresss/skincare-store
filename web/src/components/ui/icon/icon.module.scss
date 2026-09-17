@@ -1,3 +1,5 @@
+$icons: arrow-up-right, heart, heart-fill, list, magnifying-glass, shopping-cart, star, x;
+
 .icon {
   display: inline-block;
   flex-shrink: 0;
@@ -9,22 +11,8 @@
   mask-repeat: no-repeat;
 }
 
-.arrow-up-right {
-  mask-image: url('/icons/arrow-up-right.svg');
-}
-
-.heart {
-  mask-image: url('/icons/heart.svg');
-}
-
-.list {
-  mask-image: url('/icons/list.svg');
-}
-
-.magnifying-glass {
-  mask-image: url('/icons/magnifying-glass.svg');
-}
-
-.shopping-cart {
-  mask-image: url('/icons/shopping-cart.svg');
+@each $name in $icons {
+  .#{$name} {
+    mask-image: url('/icons/#{$name}.svg');
+  }
 }

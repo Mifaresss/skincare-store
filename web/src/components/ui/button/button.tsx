@@ -4,7 +4,7 @@ import s from './button.module.scss';
 
 type ButtonOwnProps<C extends ElementType> = {
   component?: C;
-  variant?: 'dark' | 'light';
+  variant?: 'dark' | 'light' | 'green';
   endIcon?: ReactNode;
   className?: string;
   children: ReactNode;

@@ -88,3 +88,17 @@
     var(--color-neutral-400)
   );
 }
+
+.green {
+  --button-color: var(--color-neutral-100);
+  --button-background: var(--color-brand-500);
+  --button-fill-size: 87%;
+  --button-fill-scale: 4.67;
+  --button-fill: radial-gradient(
+    circle closest-side,
+    var(--color-neutral-900) 43.2%,
+    var(--color-neutral-800) 43.2% 60.7%,
+    var(--color-neutral-700) 60.7% 79.4%,
+    var(--color-neutral-250) 79.4%
+  );
+}

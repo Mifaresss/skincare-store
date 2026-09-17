@@ -1,7 +1,15 @@
 import clsx from 'clsx';
 import s from './icon.module.scss';
 
-export type IconName = 'arrow-up-right' | 'heart' | 'list' | 'magnifying-glass' | 'shopping-cart';
+export type IconName =
+  | 'arrow-up-right'
+  | 'heart'
+  | 'heart-fill'
+  | 'list'
+  | 'magnifying-glass'
+  | 'shopping-cart'
+  | 'star'
+  | 'x';
 
 type IconProps = {
   name: IconName;

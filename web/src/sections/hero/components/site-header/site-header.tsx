@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
 import type { Announcement } from '@/lib/strapi/schemas';
 import { AnnouncementBar } from '../announcement-bar/announcement-bar';
+import { CartButton } from '../cart-button/cart-button';
 import { MobileMenu } from '../mobile-menu/mobile-menu';
 import { Navigation } from '../navigation/navigation';
 import s from './site-header.module.scss';
@@ -31,12 +32,7 @@ export function SiteHeader({ announcements, className }: SiteHeaderProps) {
           <MobileMenu />
           <IconButton icon="magnifying-glass" label="Search" className={s.search} />
           <IconButton icon="heart" label="Wishlist" />
-          <div className={s.cart}>
-            <IconButton icon="shopping-cart" label="Cart, 2 items" />
-            <span className={s.cartCount} aria-hidden="true">
-              2
-            </span>
-          </div>
+          <CartButton />
         </div>
       </div>
     </header>

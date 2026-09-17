@@ -1,0 +1,33 @@
+@use 'breakpoints' as bp;
+@use 'fluid' as *;
+
+.showcase {
+  --stack-top: #{fluid(16px, 40px)};
+  --stack-peek: #{fluid(96px, 100px)};
+
+  display: grid;
+  gap: 40px;
+  justify-items: center;
+
+  > :first-child {
+    inline-size: 100%;
+    max-inline-size: 500px;
+  }
+
+  @include bp.up(lg) {
+    grid-template-columns: minmax(420px, 500px) minmax(0, 1fr);
+    align-items: start;
+    justify-items: stretch;
+  }
+}
+
+.panel {
+  display: none;
+
+  @include bp.up(lg) {
+    position: sticky;
+    top: var(--stack-top);
+    display: grid;
+    min-block-size: var(--stacked-height);
+  }
+}
