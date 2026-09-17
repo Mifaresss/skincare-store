@@ -18,8 +18,10 @@ type ProductCardProps = {
 
 export function ProductCard({ product, className }: ProductCardProps) {
   const titleId = useId();
+  const detailsId = useId();
   const { addItem } = useCart();
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [selectedOptionIds, setSelectedOptionIds] = useState<Record<number, number>>(() =>
     Object.fromEntries(product.variantGroups.map((group) => [group.id, group.options[0]?.id])),
   );
@@ -70,17 +72,19 @@ export function ProductCard({ product, className }: ProductCardProps) {
       </h3>
 
       {product.variantGroups.length > 0 && (
-        <div className={s.variants}>
-          {product.variantGroups.map((group) => (
-            <VariantGroup
-              key={group.id}
-              group={group}
-              selectedOptionId={selectedOptionIds[group.id]}
-              onSelect={(optionId) =>
-                setSelectedOptionIds((ids) => ({ ...ids, [group.id]: optionId }))
-              }
-            />
-          ))}
+        <div id={detailsId} data-expanded={isExpanded} className={s.details}>
+          <div className={s.variants}>
+            {product.variantGroups.map((group) => (
+              <VariantGroup
+                key={group.id}
+                group={group}
+                selectedOptionId={selectedOptionIds[group.id]}
+                onSelect={(optionId) =>
+                  setSelectedOptionIds((ids) => ({ ...ids, [group.id]: optionId }))
+                }
+              />
+            ))}
+          </div>
         </div>
       )}
 
@@ -108,9 +112,17 @@ export function ProductCard({ product, className }: ProductCardProps) {
         >
           Add to bag
         </Button>
-        <Button variant="light" className={s.action}>
-          View details
-        </Button>
+        {product.variantGroups.length > 0 && (
+          <Button
+            variant="light"
+            aria-expanded={isExpanded}
+            aria-controls={detailsId}
+            onClick={() => setIsExpanded((value) => !value)}
+            className={clsx(s.action, s.detailsToggle)}
+          >
+            View details
+          </Button>
+        )}
       </div>
     </article>
   );

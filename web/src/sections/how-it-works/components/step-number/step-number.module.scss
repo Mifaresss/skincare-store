@@ -1,0 +1,15 @@
+.number {
+  display: block;
+  flex-shrink: 0;
+  block-size: 0.525em;
+  overflow: hidden;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-neutral-600);
+}
+
+.glyphs {
+  display: block;
+  margin-block-start: -0.1375em;
+}

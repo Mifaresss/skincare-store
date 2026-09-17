@@ -60,7 +60,7 @@ export function useCardStack(
       let previousTail = 0;
 
       items.forEach((item, index) => {
-        const tail = stackedBottom - stackedBottoms[index];
+        const tail = Math.round(stackedBottom - stackedBottoms[index]);
         item.style.setProperty('--stack-tail-before', `${previousTail}px`);
         item.style.setProperty('--stack-tail', `${tail}px`);
         previousTail = tail;

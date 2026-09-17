@@ -5,12 +5,17 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  inline-size: 264px;
-  padding: 8px 8px 12px;
+  inline-size: 160px;
+  padding: 4px 4px 12px;
   background: var(--color-neutral-100);
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-card-s);
+
+  @include bp.up(lg) {
+    inline-size: 264px;
+    padding: 8px 8px 12px;
+  }
 }
 
 .media {
@@ -22,38 +27,55 @@
   block-size: auto;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
+
+  @include bp.up(lg) {
+    border-radius: var(--radius-sm);
+  }
 }
 
 .badges {
   position: absolute;
-  inset: 3px auto auto 3px;
+  inset: 4px auto auto 4px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 4px;
+
+  @include bp.up(lg) {
+    inset: 3px auto auto 3px;
+    gap: 8px;
+  }
 }
 
 .badge {
-  padding: 8px 12px;
-  font-size: rem(18px);
-  font-weight: 700;
-  line-height: 1.3;
+  padding: 4px 6px;
+  font-size: rem(14px);
+  font-weight: 500;
+  line-height: 1.2;
   color: var(--color-neutral-100);
   background: var(--color-neutral-900);
-  border-radius: var(--radius-xs);
+  border-radius: 6px;
   box-shadow: var(--shadow-card-s);
+
+  @include bp.up(lg) {
+    padding: 8px 12px;
+    font-size: rem(18px);
+    font-weight: 700;
+    line-height: 1.3;
+    border-radius: var(--radius-xs);
+  }
 }
 
 .wishlist {
-  --icon-size: 32px;
+  --icon-size: 16px;
 
   position: absolute;
-  right: 8px;
-  bottom: 8px;
+  right: 6px;
+  bottom: 6px;
   display: grid;
   place-items: center;
-  inline-size: 44px;
-  block-size: 44px;
+  inline-size: 26px;
+  block-size: 26px;
   color: var(--color-neutral-900);
   background: var(--color-neutral-200);
   border-radius: var(--radius-pill);
@@ -70,88 +92,202 @@
       color: var(--color-accent-teal);
     }
   }
+
+  @include bp.up(lg) {
+    --icon-size: 32px;
+
+    right: 8px;
+    bottom: 8px;
+    inline-size: 44px;
+    block-size: 44px;
+  }
 }
 
 .name {
-  margin-block-start: 16px;
-  font-size: rem(18px);
-  font-weight: 700;
+  margin-block-start: 12px;
+  font-size: rem(16px);
+  font-weight: 500;
   line-height: 1.2;
   color: var(--color-neutral-900);
+
+  @include bp.up(lg) {
+    margin-block-start: 16px;
+    font-size: rem(18px);
+    font-weight: 700;
+  }
 }
 
 .size {
   display: block;
 }
 
+.details {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.35s ease,
+    visibility 0s 0.35s;
+
+  &[data-expanded='true'] {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows 0.35s ease;
+  }
+
+  @include bp.up(lg) {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+}
+
 .variants {
   display: grid;
   gap: 12px;
-  margin-block-start: 12px;
+  min-block-size: 0;
+  padding: 12px 10px 0;
+  margin-inline: -10px;
+  overflow: hidden;
+
+  @include bp.up(lg) {
+    overflow: visible;
+  }
 }
 
 .footer {
   display: grid;
-  gap: 6px;
+  gap: 12px;
+  padding-block-start: 12px;
   margin-block-start: auto;
-  padding-block-start: 20px;
+
+  @include bp.up(lg) {
+    gap: 6px;
+    padding-block-start: 20px;
+  }
 }
 
 .price {
-  position: relative;
-  display: grid;
-  align-content: center;
-  min-block-size: 44px;
-  padding: 4px 24px;
-  margin-block-end: 2px;
-  background: var(--color-neutral-200);
-  border-radius: var(--radius-xl);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  @include bp.up(lg) {
+    position: relative;
+    display: grid;
+    align-content: center;
+    min-block-size: 44px;
+    padding: 4px 24px;
+    margin-block-end: 2px;
+    background: var(--color-neutral-200);
+    border-radius: var(--radius-xl);
+  }
 }
 
 .originalPrice {
-  font-size: rem(14px);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--color-neutral-700);
+  display: none;
+
+  @include bp.up(lg) {
+    display: block;
+    font-size: rem(14px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-neutral-700);
+  }
 }
 
 .currentPrice {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   align-items: center;
-  font-size: rem(18px);
-  font-weight: 700;
+  font-size: rem(16px);
+  font-weight: 500;
   line-height: 1.2;
   color: var(--color-neutral-900);
+  white-space: nowrap;
+
+  @include bp.up(lg) {
+    gap: 6px;
+    font-size: rem(18px);
+    font-weight: 700;
+  }
 }
 
 .priceLabel {
-  font-size: rem(16px);
-  line-height: 1.1;
+  @include bp.up(lg) {
+    font-size: rem(16px);
+    line-height: 1.1;
+  }
 }
 
 .discount {
-  position: absolute;
-  top: 50%;
-  right: 24px;
-  padding: 6px 8px;
+  padding: 4px 6px;
   font-size: rem(16px);
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: 500;
+  line-height: 1.2;
   color: var(--color-neutral-100);
   background: var(--color-neutral-900);
   border-radius: var(--radius-pill);
-  translate: 0 -50%;
-  rotate: -3deg;
+  rotate: 3deg;
+
+  @include bp.up(lg) {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    padding: 6px 8px;
+    font-weight: 700;
+    line-height: 1.1;
+    translate: 0 -50%;
+    rotate: -3deg;
+  }
 }
 
 .action {
   --button-padding-block: 12px;
-  --button-padding-inline: 24px;
+  --button-padding-inline: 16px;
   --button-font-size: #{rem(16px)};
   --icon-size: 20px;
 
-  justify-content: flex-start;
-  line-height: 1.1;
+  font-weight: 500;
+
+  @include bp.up(lg) {
+    --button-padding-inline: 24px;
+
+    justify-content: flex-start;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+}
+
+.detailsToggle {
+  --button-padding-block: 0;
+  --button-padding-inline: 0;
+  --button-font-size: #{rem(14px)};
+  --button-background: transparent;
+  --button-fill: none;
+
+  order: -1;
+  justify-self: start;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  @include bp.up(lg) {
+    --button-padding-block: 12px;
+    --button-padding-inline: 24px;
+    --button-font-size: #{rem(16px)};
+    --button-background: var(--color-neutral-200);
+    --button-fill: radial-gradient(
+      circle closest-side,
+      var(--color-neutral-300),
+      var(--color-neutral-400)
+    );
+
+    order: 0;
+    justify-self: stretch;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+  }
 }

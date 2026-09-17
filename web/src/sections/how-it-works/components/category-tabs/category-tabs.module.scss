@@ -23,7 +23,7 @@
   flex-shrink: 0;
   padding: 12px;
   font-size: rem(18px);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.3;
   color: var(--color-neutral-900);
   white-space: nowrap;
@@ -33,6 +33,7 @@
     color 0.3s ease;
 
   &[aria-selected='true'] {
+    font-weight: 500;
     color: #fcfcfc;
     background: var(--color-neutral-900);
     box-shadow: var(--shadow-card-s);
@@ -46,7 +47,12 @@
 
   @include bp.up(lg) {
     padding: 24px 32px;
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
+
+    &[aria-selected='true'] {
+      font-weight: 700;
+    }
   }
 }

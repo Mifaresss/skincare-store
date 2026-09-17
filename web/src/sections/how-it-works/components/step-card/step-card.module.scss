@@ -34,6 +34,11 @@
 
 .heading {
   display: flex;
+  margin-block-start: 10px;
+
+  @include bp.up(lg) {
+    margin-block-start: 0;
+  }
 }
 
 .reveal {
@@ -51,15 +56,7 @@
 }
 
 .number {
-  display: block;
-  flex-shrink: 0;
-  block-size: 0.525em;
-  overflow: hidden;
   font-size: fluid(91px, 80px);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--color-neutral-600);
 
   @include bp.up(lg) {
     font-weight: 700;
@@ -67,19 +64,16 @@
   }
 }
 
-.numberGlyphs {
-  display: block;
-  margin-block-start: -0.1375em;
-}
-
 .title {
   font-size: fluid(40px, 50px);
-  font-weight: 700;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 0.8;
   color: var(--color-brand-500);
 
   @include bp.up(lg) {
     margin-block-start: -0.16em;
+    font-weight: 700;
+    line-height: 1;
   }
 }
 

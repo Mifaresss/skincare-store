@@ -12,7 +12,7 @@
 
 .intro {
   display: grid;
-  gap: fluid(12px, 12px);
+  gap: 12px;
   justify-items: center;
   justify-self: center;
   text-align: center;
@@ -50,7 +50,7 @@
 }
 
 .subtitle {
-  max-inline-size: 13em;
+  max-inline-size: 12em;
   font-size: rem(18px);
   font-weight: 500;
   line-height: 1.2;

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { FocusEvent } from 'react';
 import { Icon } from '@/components/ui/icon/icon';
 import type { Step } from '../../steps';
+import { StepNumber } from '../step-number/step-number';
 import s from './step-card.module.scss';
 
 type StepCardProps = {
@@ -26,9 +27,7 @@ export function StepCard({ step, number, onReveal, onShop }: StepCardProps) {
           onClick={onReveal}
           onFocus={revealOnKeyboardFocus}
         >
-          <span className={s.number}>
-            <span className={s.numberGlyphs}>{String(number).padStart(2, '0')}</span>
-          </span>{' '}
+          <StepNumber value={number} className={s.number} />{' '}
           <span className={s.title}>{step.title}</span>
         </button>
       </h3>

@@ -1,9 +1,15 @@
 @use 'breakpoints' as bp;
 @use 'fluid' as *;
 
+@property --stack-peek {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
 .showcase {
   --stack-top: #{fluid(16px, 40px)};
-  --stack-peek: #{fluid(96px, 100px)};
+  --stack-peek: #{fluid(130px, 100px)};
 
   display: grid;
   gap: 40px;
@@ -15,6 +21,9 @@
   }
 
   @include bp.up(lg) {
+    --stack-top: clamp(16px, 100dvh - 860px, 40px);
+    --stack-peek: min(#{fluid(130px, 100px)}, 11dvh);
+
     grid-template-columns: minmax(420px, 500px) minmax(0, 1fr);
     align-items: start;
     justify-items: stretch;
