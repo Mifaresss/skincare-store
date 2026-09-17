@@ -170,9 +170,11 @@
   display: flex;
   gap: 6px;
   align-items: center;
+  order: -2;
 
   @include bp.up(lg) {
     position: relative;
+    order: 0;
     display: grid;
     align-content: center;
     min-block-size: 44px;

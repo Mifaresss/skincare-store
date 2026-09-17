@@ -36,7 +36,6 @@
 
 .rail {
   display: flex;
-  align-items: flex-start;
   padding: 14px var(--page-padding) 24px;
   margin: 0 calc(-1 * var(--page-padding)) -24px;
   overflow-x: auto;
@@ -47,7 +46,6 @@
   scrollbar-width: thin;
 
   @include bp.up(lg) {
-    align-items: stretch;
     padding: 16px 16px 24px;
     margin-inline: -16px;
     scroll-padding-inline: 16px;
@@ -57,12 +55,10 @@
 .products {
   display: flex;
   gap: 8px;
-  align-items: flex-start;
   inline-size: max-content;
 
   @include bp.up(lg) {
     gap: 12px;
-    align-items: stretch;
   }
 }
 
