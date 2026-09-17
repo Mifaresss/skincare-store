@@ -19,7 +19,7 @@
 
   @include bp.up(md) {
     padding: 28px fluid(40px, 160px, 768px, 1440px);
-    background: linear-gradient(to bottom, #f3f5f5 11.5%, #f5fcfd 104.6%);
+    background: linear-gradient(to bottom, var(--color-neutral-200) 11.5%, #f5fcfd 104.6%);
     border-radius: var(--radius-pill);
     box-shadow: var(--shadow-card-m);
   }
