@@ -4,8 +4,8 @@ services:
     runtime: node
     plan: free
     region: frankfurt
-    buildCommand: corepack enable pnpm && pnpm install --frozen-lockfile && pnpm --filter cms build
-    startCommand: pnpm --filter cms start
+    buildCommand: corepack enable pnpm && pnpm install --frozen-lockfile --filter cms... && pnpm --filter cms build
+    startCommand: cd cms && node node_modules/@strapi/strapi/bin/strapi.js start
     healthCheckPath: /_health
     envVars:
       - key: NODE_ENV
@@ -17,7 +17,7 @@ services:
       - key: PUBLIC_URL
         sync: false
       - key: APP_KEYS
-        generateValue: true
+        sync: false
       - key: API_TOKEN_SALT
         generateValue: true
       - key: ADMIN_JWT_SECRET
@@ -27,7 +27,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: ENCRYPTION_KEY
-        generateValue: true
+        sync: false
       - key: DATABASE_URL
         sync: false
       - key: DATABASE_SSL
