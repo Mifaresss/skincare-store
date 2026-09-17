@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     loadPaths: [path.resolve('src/styles')],
   },
   images: {
-    remotePatterns: [new URL('/uploads/**', strapiUrl)],
+    remotePatterns: [new URL('/uploads/**', strapiUrl), new URL('https://res.cloudinary.com/**')],
     dangerouslyAllowLocalIP: ['localhost', '127.0.0.1'].includes(strapiUrl.hostname),
   },
 };

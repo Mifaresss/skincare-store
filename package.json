@@ -12,7 +12,7 @@
     "check": "biome check . && prettier --check --no-error-on-unmatched-pattern \"**/*.{scss,css}\"",
     "fix": "biome check --write . && prettier --write --no-error-on-unmatched-pattern \"**/*.{scss,css}\"",
     "typecheck": "pnpm -r --parallel typecheck",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install || exit 0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.13",

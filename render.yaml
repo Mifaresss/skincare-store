@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: lumea-cms
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: corepack enable pnpm && pnpm install --frozen-lockfile && pnpm --filter cms build
+    startCommand: pnpm --filter cms start
+    healthCheckPath: /_health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22
+      - key: IS_PROXIED
+        value: true
+      - key: PUBLIC_URL
+        sync: false
+      - key: APP_KEYS
+        generateValue: true
+      - key: API_TOKEN_SALT
+        generateValue: true
+      - key: ADMIN_JWT_SECRET
+        generateValue: true
+      - key: TRANSFER_TOKEN_SALT
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ENCRYPTION_KEY
+        generateValue: true
+      - key: DATABASE_CLIENT
+        value: postgres
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: CLOUDINARY_NAME
+        sync: false
+      - key: CLOUDINARY_KEY
+        sync: false
+      - key: CLOUDINARY_SECRET
+        sync: false
+      - key: WEB_REVALIDATE_URL
+        sync: false
+      - key: WEB_REVALIDATE_SECRET
+        sync: false

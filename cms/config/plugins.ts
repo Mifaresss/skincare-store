@@ -23,7 +23,9 @@ const deniedTypes = [
   'application/x-mach-binary',
 ];
 
-const config = (): Core.Config.Plugin => ({
+const cloudinaryFolder = { folder: 'lumea' };
+
+const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ({
   'users-permissions': {
     config: {
       jwtManagement: 'refresh',
@@ -34,6 +36,18 @@ const config = (): Core.Config.Plugin => ({
   },
   upload: {
     config: {
+      ...(env('CLOUDINARY_NAME') && {
+        provider: 'cloudinary',
+        providerOptions: {
+          cloud_name: env('CLOUDINARY_NAME'),
+          api_key: env('CLOUDINARY_KEY'),
+          api_secret: env('CLOUDINARY_SECRET'),
+        },
+        actionOptions: {
+          upload: cloudinaryFolder,
+          uploadStream: cloudinaryFolder,
+        },
+      }),
       security: {
         allowedTypes: allowedMediaTypes,
         deniedTypes,

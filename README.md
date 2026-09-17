@@ -118,6 +118,19 @@ The website is statically rendered and cached. Strapi calls `POST /api/revalidat
 | `DATABASE_*` or `DATABASE_URL` | PostgreSQL connection |
 | `ADMIN_EMAIL`, `ADMIN_PASSWORD` | Admin account created on an empty database |
 | `WEB_REVALIDATE_URL`, `WEB_REVALIDATE_SECRET` | Website revalidation webhook |
+| `CLOUDINARY_NAME`, `CLOUDINARY_KEY`, `CLOUDINARY_SECRET` | Store uploads in Cloudinary; without them files are saved to `cms/public/uploads` |
+| `PUBLIC_URL`, `IS_PROXIED` | Public Strapi URL and trusting the hosting proxy (production) |
+
+## Deployment
+
+| Part | Service |
+| --- | --- |
+| Website | Vercel, root directory `web` |
+| Strapi | Render, blueprint in `render.yaml` |
+| Database | Neon PostgreSQL (`DATABASE_URL`, `DATABASE_SSL=true`) |
+| Media | Cloudinary — the Render file system is reset on every restart |
+
+Strapi runs on the Render free plan and sleeps after 15 minutes without requests, so the first Admin load can take about a minute. The website does not depend on it: pages are served from the cache and refreshed by the webhook.
 
 ## Implementation notes
 
