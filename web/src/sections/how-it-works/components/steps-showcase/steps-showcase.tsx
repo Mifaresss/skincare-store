@@ -58,6 +58,7 @@ export function StepsShowcase({ steps, categories, className }: StepsShowcasePro
         activeIndex={activeIndex}
         onSelect={selectStep}
         onShop={shopStep}
+        className={s.stack}
       />
       <ProductsPanel
         title={steps[activeIndex].shopLabel}

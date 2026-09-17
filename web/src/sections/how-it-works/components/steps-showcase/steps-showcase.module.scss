@@ -15,11 +15,6 @@
   gap: 40px;
   justify-items: center;
 
-  > :first-child {
-    inline-size: 100%;
-    max-inline-size: 500px;
-  }
-
   @include bp.up(lg) {
     --stack-top: clamp(16px, 100dvh - 860px, 40px);
     --stack-peek: min(#{fluid(130px, 100px)}, 11dvh);
@@ -28,6 +23,11 @@
     align-items: start;
     justify-items: stretch;
   }
+}
+
+.stack {
+  inline-size: 100%;
+  max-inline-size: 500px;
 }
 
 .panel {
