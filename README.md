@@ -17,9 +17,9 @@ Test task for Dashly Studio: the hero section and the “How it works” section
 ```
 .
 ├── web/                 Next.js frontend
-│   ├── public/          icons and static images
 │   └── src/
 │       ├── app/         page, layout, metadata, revalidation route
+│       ├── assets/      images and icons
 │       ├── components/  shared UI (button, icon, cart state)
 │       ├── lib/         Strapi client, Zod schemas, pricing
 │       ├── sections/    hero and how-it-works, each with its own components

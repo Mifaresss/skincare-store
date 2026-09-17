@@ -1,10 +1,16 @@
+import type { StaticImageData } from 'next/image';
+import cleanseImage from '@/assets/images/steps/cleanse.jpg';
+import moisturiseImage from '@/assets/images/steps/moisturise.jpg';
+import protectImage from '@/assets/images/steps/protect.jpg';
+import treatImage from '@/assets/images/steps/treat.jpg';
+
 export type Step = {
   id: 'cleanse' | 'treat' | 'moisturise' | 'protect';
   title: string;
   tagline: string;
   description: string;
   shopLabel: string;
-  image: { src: string; alt: string };
+  image: { src: StaticImageData; alt: string };
 };
 
 export const steps: Step[] = [
@@ -15,7 +21,7 @@ export const steps: Step[] = [
     description: 'Gently remove makeup, SPF and daily impurities without stripping your skin.',
     shopLabel: 'Shop cleansers',
     image: {
-      src: '/images/steps/cleanse.jpg',
+      src: cleanseImage,
       alt: 'Hands pouring cleansing water onto a cotton pad',
     },
   },
@@ -27,7 +33,7 @@ export const steps: Step[] = [
       'Serums and treatments deliver targeted ingredients to help with dryness, dullness, texture and blemishes.',
     shopLabel: 'Shop treatments',
     image: {
-      src: '/images/steps/treat.jpg',
+      src: treatImage,
       alt: 'Hands applying toner from a bottle to a cotton pad',
     },
   },
@@ -39,7 +45,7 @@ export const steps: Step[] = [
       'Moisturisers help strengthen the skin barrier, lock in hydration and leave skin soft and balanced.',
     shopLabel: 'Shop moisturisers',
     image: {
-      src: '/images/steps/moisturise.jpg',
+      src: moisturiseImage,
       alt: 'Woman with a headband applying moisturiser to her cheek',
     },
   },
@@ -51,7 +57,7 @@ export const steps: Step[] = [
       'Daily SPF helps protect your skin from UV damage and keeps it looking healthy every day.',
     shopLabel: 'Shop SPF',
     image: {
-      src: '/images/steps/protect.jpg',
+      src: protectImage,
       alt: 'Woman with curly hair pressing a cotton pad to her forehead',
     },
   },

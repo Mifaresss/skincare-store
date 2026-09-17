@@ -13,6 +13,6 @@ $icons: arrow-up-right, heart, heart-fill, list, magnifying-glass, shopping-cart
 
 @each $name in $icons {
   .#{$name} {
-    mask-image: url('/icons/#{$name}.svg');
+    mask-image: url('../../../assets/icons/#{$name}.svg');
   }
 }

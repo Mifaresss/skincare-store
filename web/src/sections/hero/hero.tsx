@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
+import essentialsDropperImage from '@/assets/images/essentials-dropper.jpg';
+import heroPortraitImage from '@/assets/images/hero-portrait.jpg';
 import { Button } from '@/components/ui/button/button';
 import { Icon } from '@/components/ui/icon/icon';
 import s from './hero.module.scss';
@@ -33,10 +35,8 @@ export function Hero({ className }: HeroProps) {
       </div>
 
       <Image
-        src="/images/hero-portrait.jpg"
+        src={heroPortraitImage}
         alt="Woman with glowing skin enjoying the sun"
-        width={1200}
-        height={800}
         sizes="(min-width: 1280px) 40vw, (min-width: 640px) 561px, calc(100vw - 48px)"
         loading="eager"
         className={s.portrait}
@@ -44,7 +44,7 @@ export function Hero({ className }: HeroProps) {
 
       <div className={s.essentials}>
         <div className={s.essentialsImage}>
-          <Image src="/images/essentials-dropper.jpg" alt="" fill sizes="184px" />
+          <Image src={essentialsDropperImage} alt="" fill sizes="184px" />
         </div>
         <div className={s.essentialsCard}>
           <p className={s.essentialsTitle}>LUMEA essentials</p>
