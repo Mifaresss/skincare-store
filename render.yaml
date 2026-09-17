@@ -11,7 +11,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
-        value: 22
+        value: 24
       - key: IS_PROXIED
         value: true
       - key: PUBLIC_URL
