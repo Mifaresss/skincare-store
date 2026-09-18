@@ -2,6 +2,8 @@
 @use 'fluid' as *;
 
 .bar {
+  align-self: center;
+  min-width: 354px;
   display: grid;
   place-items: center;
   min-block-size: 44px;
@@ -15,7 +17,6 @@
   box-shadow: var(--shadow-card-s);
 
   @include bp.up(lg) {
-    align-self: center;
     inline-size: min(458px, 100%);
     padding-inline: 20px;
     font-weight: 700;
@@ -29,6 +30,10 @@
   transition:
     opacity 0.5s ease,
     transform 0.5s ease;
+
+  @include bp.up(lg) {
+    font-weight: 700;
+  }
 }
 
 .active {

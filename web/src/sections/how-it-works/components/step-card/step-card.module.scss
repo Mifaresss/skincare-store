@@ -34,11 +34,6 @@
 
 .heading {
   display: flex;
-  margin-block-start: 2px;
-
-  @include bp.up(lg) {
-    margin-block-start: 8px;
-  }
 }
 
 .reveal {
@@ -87,7 +82,7 @@
 }
 
 .description {
-  max-inline-size: 405px;
+  max-inline-size: 400px;
   min-block-size: 4lh;
   margin-block-start: fluid(24px, 32px);
   font-size: rem(18px);

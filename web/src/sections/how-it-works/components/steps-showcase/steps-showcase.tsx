@@ -45,7 +45,6 @@ export function StepsShowcase({ steps, categories, className }: StepsShowcasePro
       selectStep(index);
       return;
     }
-
     setDialogStepIndex(index);
     setIsDialogOpen(true);
   };

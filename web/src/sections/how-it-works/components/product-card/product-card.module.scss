@@ -274,6 +274,7 @@
   letter-spacing: -0.02em;
   text-decoration: underline;
   text-underline-offset: 2px;
+  border-radius: 0;
 
   @include bp.up(lg) {
     --button-padding-block: 12px;
@@ -291,5 +292,6 @@
     font-weight: 700;
     letter-spacing: 0;
     text-decoration: none;
+    border-radius: var(--radius-pill);
   }
 }
