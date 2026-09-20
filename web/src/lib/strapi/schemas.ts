@@ -70,7 +70,6 @@ export const productsResponseSchema = z
   .transform(({ data }) => data);
 
 export type Announcement = z.output<typeof announcementSchema>;
-export type ProductImage = z.output<typeof imageSchema>;
 export type VariantGroup = z.output<typeof variantGroupSchema>;
 export type Product = z.output<typeof productSchema>;
 export type ProductPricing = Pick<

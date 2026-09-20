@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "dev:web": "pnpm --filter web dev",
-    "dev:cms": "pnpm --filter cms develop",
+    "dev:cms": "pnpm --filter cms dev",
     "check": "biome check . && prettier --check --no-error-on-unmatched-pattern \"**/*.{scss,css}\"",
     "fix": "biome check --write . && prettier --write --no-error-on-unmatched-pattern \"**/*.{scss,css}\"",
     "typecheck": "pnpm -r --parallel typecheck",

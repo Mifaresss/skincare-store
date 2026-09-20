@@ -19,7 +19,7 @@ type SeedDiscount =
   | { discountType: 'percentage'; discountPercent: number }
   | { discountType: 'salePrice'; salePrice: number };
 
-export type SeedProduct = SeedDiscount & {
+type SeedProduct = SeedDiscount & {
   name: string;
   size?: string;
   image: SeedImage;

@@ -10,13 +10,9 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
       database: env('DATABASE_NAME', 'lumea'),
       user: env('DATABASE_USERNAME', 'strapi'),
       password: env('DATABASE_PASSWORD', 'strapi'),
-      ssl: env.bool('DATABASE_SSL', false) && {
-        rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
-      },
-      schema: env('DATABASE_SCHEMA', 'public'),
+      ssl: env.bool('DATABASE_SSL', false),
     },
-    pool: { min: env.int('DATABASE_POOL_MIN', 0), max: env.int('DATABASE_POOL_MAX', 10) },
-    acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+    pool: { min: 0, max: 10 },
   },
 });
 

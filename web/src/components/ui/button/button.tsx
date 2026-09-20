@@ -10,7 +10,7 @@ type ButtonOwnProps<C extends ElementType> = {
   children: ReactNode;
 };
 
-export type ButtonProps<C extends ElementType = 'button'> = ButtonOwnProps<C> &
+type ButtonProps<C extends ElementType = 'button'> = ButtonOwnProps<C> &
   Omit<ComponentProps<C>, keyof ButtonOwnProps<C>>;
 
 export function Button<C extends ElementType = 'button'>({

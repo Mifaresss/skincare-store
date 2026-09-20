@@ -1,6 +1,6 @@
 import type { ProductPricing } from './strapi/schemas';
 
-export type ResolvedPrice = {
+type ResolvedPrice = {
   current: number;
   original: number | null;
   discountPercent: number | null;

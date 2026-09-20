@@ -84,6 +84,8 @@ docker compose up -d --wait
 | Categories — create, rename, delete, order | Collection **Category** (`sortOrder`, then name) |
 | Badges | Collection **Badge** |
 
+Products are shown in the order they were created.
+
 Product and Announcement Bar use Draft & Publish: changes appear on the website after **Publish**. Categories and badges are published immediately.
 
 ### Discounts
@@ -96,7 +98,7 @@ A product has a **Discount type**:
 
 Only the field for the selected type is visible in the admin. Strapi does not save a product with a missing discount value or a sale price that is not lower than the price.
 
-A variant value can have its own discount percent (for example, Size → 100 ml −20%). When that value is selected, its percent replaces the product discount, calculated from the product price.
+A variant value can have its own discount percent (for example, Size → 100 ml −20%). When that value is selected, its percent replaces the product discount, calculated from the product price. If values with a discount are selected in several groups, the largest percent applies.
 
 ### How the website updates
 
@@ -131,8 +133,6 @@ The website is statically rendered and cached. Strapi calls `POST /api/revalidat
 | Strapi | Render, blueprint in `render.yaml` |
 | Database | Neon PostgreSQL (`DATABASE_URL`, `DATABASE_SSL=true`) |
 | Media | Cloudinary — the Render file system is reset on every restart |
-
-Strapi runs on the Render free plan and sleeps after 15 minutes without requests, so the first Admin load can take about a minute. The website does not depend on it: pages are served from the cache and refreshed by the webhook.
 
 ## Implementation notes
 
