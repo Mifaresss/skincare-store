@@ -1,13 +1,19 @@
 @use 'breakpoints' as bp;
 @use 'fluid' as *;
 
+@property --stack-compression {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
 .list {
   display: grid;
   row-gap: fluid(16px, 24px);
   overflow-anchor: none;
 
   &::after {
-    block-size: fluid(60px, 176px);
+    block-size: max(#{fluid(60px, 176px)}, var(--stack-room, 0px));
     content: '';
   }
 }
@@ -16,8 +22,10 @@
   position: sticky;
   top: calc(var(--stack-top) + var(--index) * var(--stack-peek));
   margin-block: calc(-1 * var(--stack-tail-before, 0px)) var(--stack-tail, 0px);
+  padding-block-end: calc(var(--stack-compression) * var(--stack-progress, 0));
 
   @include bp.up(lg) {
-    --stack-compression: 50px;
+    --stack-shop-collapse: calc(#{rem(24px)} + 22px);
+    --stack-compression: calc(50px + var(--stack-shop-collapse));
   }
 }
