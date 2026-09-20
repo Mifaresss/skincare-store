@@ -173,6 +173,7 @@
   order: -2;
 
   @include bp.up(lg) {
+    gap: 0;
     position: relative;
     order: 0;
     display: grid;
