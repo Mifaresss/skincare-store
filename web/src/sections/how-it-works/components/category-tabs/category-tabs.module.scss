@@ -1,14 +1,26 @@
 @use 'breakpoints' as bp;
 @use 'fluid' as *;
 
+.scroller {
+  padding: 24px var(--page-padding);
+  margin: -24px calc(-1 * var(--page-padding));
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--page-padding);
+  scrollbar-width: none;
+
+  @include bp.up(lg) {
+    padding-inline: 16px;
+    margin-inline: -16px;
+    scroll-padding-inline: 16px;
+  }
+}
+
 .tabs {
   display: flex;
   gap: 12px;
   inline-size: max-content;
-  max-inline-size: 100%;
   padding: 4px;
-  overflow-x: auto;
-  scrollbar-width: none;
   background: var(--color-neutral-100);
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-pill);
@@ -49,10 +61,10 @@
     padding: 24px 32px;
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
 
     &[aria-selected='true'] {
       font-weight: 700;
+      letter-spacing: -0.02em;
     }
   }
 }

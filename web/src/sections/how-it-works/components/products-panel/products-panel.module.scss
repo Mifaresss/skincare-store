@@ -18,19 +18,13 @@
   line-height: 1.2;
   color: var(--color-neutral-900);
   text-align: center;
+  margin-block-end: 40px;
 
   @include bp.up(lg) {
+    margin-block-end: 12px;
     font-size: rem(16px);
     line-height: 1.1;
     text-align: start;
-  }
-}
-
-.tabs {
-  margin-block-start: 40px;
-
-  @include bp.up(lg) {
-    margin-block-start: 12px;
   }
 }
 

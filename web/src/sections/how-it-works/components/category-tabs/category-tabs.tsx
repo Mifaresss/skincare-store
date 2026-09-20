@@ -44,27 +44,29 @@ export function CategoryTabs({
   };
 
   return (
-    <div role="tablist" aria-labelledby={labelledBy} className={clsx(s.tabs, className)}>
-      {categories.map((category, index) => {
-        const isActive = category.id === activeId;
+    <div className={clsx(s.scroller, className)}>
+      <div role="tablist" aria-labelledby={labelledBy} className={s.tabs}>
+        {categories.map((category, index) => {
+          const isActive = category.id === activeId;
 
-        return (
-          <button
-            key={category.id}
-            type="button"
-            role="tab"
-            id={getTabId(category.id)}
-            aria-selected={isActive}
-            aria-controls={panelId}
-            tabIndex={isActive ? 0 : -1}
-            onClick={() => onChange(category.id)}
-            onKeyDown={(event) => handleKeyDown(event, index)}
-            className={s.tab}
-          >
-            {category.name}
-          </button>
-        );
-      })}
+          return (
+            <button
+              key={category.id}
+              type="button"
+              role="tab"
+              id={getTabId(category.id)}
+              aria-selected={isActive}
+              aria-controls={panelId}
+              tabIndex={isActive ? 0 : -1}
+              onClick={() => onChange(category.id)}
+              onKeyDown={(event) => handleKeyDown(event, index)}
+              className={s.tab}
+            >
+              {category.name}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

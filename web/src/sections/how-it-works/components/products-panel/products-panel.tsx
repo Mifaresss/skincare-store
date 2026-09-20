@@ -35,7 +35,6 @@ export function ProductsPanel({ title, categories, className }: ProductsPanelPro
             getTabId={getTabId}
             panelId={`${id}-panel`}
             labelledBy={`${id}-title`}
-            className={s.tabs}
           />
           <div
             key={activeCategory.id}
