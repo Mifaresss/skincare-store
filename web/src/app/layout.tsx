@@ -18,6 +18,7 @@ const inter = Inter({
 const caveat = Caveat({
   variable: '--font-caveat',
   subsets: ['latin'],
+  weight: '700',
 });
 
 const title = 'LUMEA — Skincare made simple';
