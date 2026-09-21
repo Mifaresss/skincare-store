@@ -29,13 +29,15 @@ function getStackMetrics(list: HTMLElement) {
 
 export function useCardStack(
   listRef: RefObject<HTMLElement | null>,
+  panelRef: RefObject<HTMLElement | null>,
   onActiveChange: (index: number) => void,
 ) {
   const handleActiveChange = useEffectEvent(onActiveChange);
 
   useEffect(() => {
     const list = listRef.current;
-    if (!list) return;
+    const panel = panelRef.current;
+    if (!list || !panel) return;
 
     let frame = 0;
     let activeIndex = -1;
@@ -46,6 +48,9 @@ export function useCardStack(
         getStackMetrics(list);
       const last = items.length - 1;
       const listTop = list.getBoundingClientRect().top;
+      const rail = panel.lastElementChild as HTMLElement;
+      const railScrollbar = rail.offsetHeight - rail.clientHeight;
+      const productsHeight = panel.offsetHeight - railScrollbar;
       let stuckIndex = 0;
 
       items.forEach((item, index) => {
@@ -58,6 +63,12 @@ export function useCardStack(
       const stackedBottoms = items.map(
         (_, index) => stickyTops[index] + heights[index] - compressions[index],
       );
+      const stackedHeight = Math.max(...stackedBottoms) - stickyTops[0];
+      const stretch = Math.min(Math.max(productsHeight - stackedHeight, 0), compressions[last]);
+      compressions[last] -= stretch;
+      stackedBottoms[last] += stretch;
+      items[last].style.setProperty('--stack-stretch', `${stretch}px`);
+
       const stackedBottom = Math.max(...stackedBottoms);
       let previousTail = 0;
 
@@ -70,7 +81,7 @@ export function useCardStack(
 
       list.parentElement?.style.setProperty(
         '--stacked-height',
-        `${stackedBottom - stickyTops[0]}px`,
+        `${stackedHeight + railScrollbar}px`,
       );
 
       const room =
@@ -89,6 +100,7 @@ export function useCardStack(
 
     const resizeObserver = new ResizeObserver(scheduleUpdate);
     resizeObserver.observe(list);
+    resizeObserver.observe(panel);
     window.addEventListener('scroll', scheduleUpdate, { passive: true });
     update();
 
@@ -97,7 +109,7 @@ export function useCardStack(
       resizeObserver.disconnect();
       window.removeEventListener('scroll', scheduleUpdate);
     };
-  }, [listRef]);
+  }, [listRef, panelRef]);
 
   return useCallback(
     (index: number) => {

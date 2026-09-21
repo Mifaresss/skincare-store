@@ -1,19 +1,20 @@
 'use client';
 
 import clsx from 'clsx';
-import { useId, useState } from 'react';
+import { type Ref, useId, useState } from 'react';
 import type { CategoryWithProducts } from '@/lib/strapi/queries';
 import { CategoryTabs } from '../category-tabs/category-tabs';
 import { ProductCard } from '../product-card/product-card';
 import s from './products-panel.module.scss';
 
 type ProductsPanelProps = {
+  ref?: Ref<HTMLDivElement>;
   title: string;
   categories: CategoryWithProducts[];
   className?: string;
 };
 
-export function ProductsPanel({ title, categories, className }: ProductsPanelProps) {
+export function ProductsPanel({ ref, title, categories, className }: ProductsPanelProps) {
   const id = useId();
   const [activeCategoryId, setActiveCategoryId] = useState(categories[0]?.id);
   const activeCategory =
@@ -21,7 +22,7 @@ export function ProductsPanel({ title, categories, className }: ProductsPanelPro
   const getTabId = (categoryId: string) => `${id}-tab-${categoryId}`;
 
   return (
-    <div className={clsx(s.panel, className)}>
+    <div ref={ref} className={clsx(s.panel, className)}>
       <p id={`${id}-title`} className={s.title}>
         {title}
       </p>

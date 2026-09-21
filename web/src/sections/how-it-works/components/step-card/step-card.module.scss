@@ -154,7 +154,7 @@
   @include bp.up(lg) {
     inline-size: 390px;
     aspect-ratio: 390 / 194;
-    margin-block-start: 18px;
+    margin-block-start: calc(18px + var(--stack-stretch, 0px) * var(--stack-progress, 0));
     margin-inline-start: 0;
   }
 }

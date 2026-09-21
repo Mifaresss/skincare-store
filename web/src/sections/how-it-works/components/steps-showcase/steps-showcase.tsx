@@ -20,10 +20,11 @@ type StepsShowcaseProps = {
 
 export function StepsShowcase({ steps, categories, className }: StepsShowcaseProps) {
   const listRef = useRef<HTMLOListElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [dialogStepIndex, setDialogStepIndex] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const revealStep = useCardStack(listRef, setActiveIndex);
+  const revealStep = useCardStack(listRef, panelRef, setActiveIndex);
 
   useEffect(() => {
     const desktop = window.matchMedia(DESKTOP_QUERY);
@@ -60,6 +61,7 @@ export function StepsShowcase({ steps, categories, className }: StepsShowcasePro
         className={s.stack}
       />
       <ProductsPanel
+        ref={panelRef}
         title={steps[activeIndex].shopLabel}
         categories={categories}
         className={s.panel}
