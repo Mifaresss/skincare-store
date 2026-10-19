@@ -49,12 +49,14 @@
 
 .products {
   display: flex;
+  align-items: flex-start;
   gap: 8px;
   inline-size: max-content;
   // keeps the text from shimmering while the rail scrolls on fractional device pixels
   will-change: transform;
 
   @include bp.up(lg) {
+    align-items: initial;
     gap: 12px;
   }
 }
