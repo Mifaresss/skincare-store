@@ -25,9 +25,11 @@
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-card-s);
+  margin-inline: auto;
 
   @include bp.up(lg) {
     gap: 24px;
+    margin-inline: 0;
   }
 }
 
